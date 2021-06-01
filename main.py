@@ -2,7 +2,7 @@ import requests
 import json
 import tweepy
 import os
-from datetime import timedelta
+from datetime import date, timedelta
 
 
 def twitter_api():
@@ -31,7 +31,8 @@ def main():
     CountNumber = int(os.environ['COUNT_NUMBER'])
 
     # キーワードからツイートを取得
-    tweets = api.search(q=[SearchWord], count=CountNumber,)
+    tweets = api.search(
+        q=[SearchWord], locale='ja', result_type='recent', count=CountNumber)
 
     webhook_url = os.environ['WEBHOOK_URL']
 
