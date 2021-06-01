@@ -2,7 +2,7 @@ import requests
 import json
 import tweepy
 import os
-from datetime import date, timedelta
+from datetime import timedelta
 
 
 def twitter_api():
