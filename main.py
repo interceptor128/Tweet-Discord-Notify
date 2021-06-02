@@ -32,7 +32,7 @@ def main():
 
     # キーワードからツイートを取得
     tweets = api.search(
-        q=[SearchWord], locale='ja', result_type='recent', count=CountNumber)
+        q=[SearchWord], locale='ja', result_type='mixed', count=CountNumber)
 
     webhook_url = os.environ['WEBHOOK_URL']
 
