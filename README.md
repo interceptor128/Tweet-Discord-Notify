@@ -4,27 +4,31 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 
 ## How to use?
 
+### Preparation
+
 1. Create Heroku account
 
-2. Fork this repository
+2. Create Developer twiiter account and  create twitter app
 
-3. Create Heroku App
+3. Get api key, api secret key, access token and access token secret
 
-4. Connect to GitHub, select forked repository
+4. Create Discord server, category and channel
 
-5. Setting Config Vars
+5. Get webhook url of credated channel
 
-6. Add Heroku Postgres, create Postgres database and create table 'twitter'
+### Main task
 
-7. Deploy using Heroku Git
+1. Fork this repository
 
-8. Create Developer twiiter account and  create twitter app
+2. Create Heroku App
 
-9. Get api key, api secret key, access token and access token secret
+3. Connect to GitHub, select forked repository
 
-10. Create Discord server, category and channel
+4. Setting Config Vars
 
-11. Get webhook url of credated channel
+5. Add Heroku Postgres, create Postgres database and create table 'twitter'
+
+6. Deploy using Heroku Git
 
 ## Config Vars
 
@@ -42,7 +46,7 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 
 7. WEBHOOK_URL ... set webhook url
 
-8. DB_URI ... set URI of database credentials
+8. DATABASE_URL ... set automatly when add Heroku Postgres
 
 ## DDL
 

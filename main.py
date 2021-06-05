@@ -31,7 +31,7 @@ def search_tweet():
 
 
 def db_connect():
-    con = psycopg2.connect(os.environ['DB_URI'])
+    con = psycopg2.connect(os.environ['DATABASE_URL'])
 
     return con
 
