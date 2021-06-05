@@ -21,7 +21,8 @@ line4 = heroku_command + 'ACCESS_TOKEN_SECRET=' + \
     os.environ['ACCESS_TOKEN_SECRET'] + app_name
 line5 = heroku_command + 'SEARCH_WORD="' + \
     os.environ['SEARCH_WORD'] + '"' + app_name
-line6 = heroku_command + 'COUNT_NUMBE=' + os.environ['COUNT_NUMBER'] + app_name
+line6 = heroku_command + 'COUNT_NUMBER=' + \
+    os.environ['COUNT_NUMBER'] + app_name
 line7 = heroku_command + 'WEBHOOK_URL=' + os.environ['WEBHOOK_URL'] + app_name
 
 # create command text
