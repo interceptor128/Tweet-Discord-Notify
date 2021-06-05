@@ -14,7 +14,7 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 
 4. Create Discord server, category and channel
 
-5. Get webhook url of credated channel
+5. Get webhook url of created channel
 
 ### Main task
 
@@ -31,6 +31,11 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 6. Deploy using Heroku Git
 
 ## Config Vars
+
+You can use setting_Config_Vars.py and .env to generate commands to set environment variables.  
+The extension (bat or sh) is required as an argument to run this script.  
+If your OS is Windows, use bat. If your OS is Linux-based, use sh.  
+If you are using a Linux system, be careful about execution permissions.  
 
 1. API_KEY ... set api key of twitter
 
