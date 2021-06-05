@@ -61,18 +61,19 @@ def create_content(created_at, screen_name, tweet_id):
 
 
 if __name__ == '__main__':
-    # Search fan art tweet
+    print('Search Fan Art Tweet')
     tweets = search_tweet()
 
     webhook_url = os.environ['WEBHOOK_URL']
 
-    #
+    print('Connect Heroku Postgres')
     con = db_connect()
 
     for tweet in tweets:
-        # Check DB (postd content)
+        print('Check Table "twitter" key=%s, %s' %
+              (tweet.user.screen_name, tweet.id_str))
         sql = 'select * from twitter where screen_name = %s and tweet_id = %s'
-        res = select_execute(con, sql, tweet.user.screen_name, str(tweet.id))
+        res = select_execute(con, sql, tweet.user.screen_name, tweet.id_str)
 
         # No post tweet
         if len(res) == 0:
@@ -84,10 +85,12 @@ if __name__ == '__main__':
             main_content = {'content': post_content}
             headers = {'Content-Type': 'application/json'}
 
-            # Post Discord
+            print('Post Discord Channel')
             response = requests.post(
                 webhook_url, json.dumps(main_content), headers=headers)
 
-            # Insert tweet data of posted in discord
+            print('Insert Tweet of Posted content')
             sql = "INSERT INTO twitter (screen_name, tweet_id) VALUES(%s, %s);"
             insert_execute(con, sql, tweet.user.screen_name, str(tweet.id))
+        else:
+            print("No tweet")
