@@ -8,7 +8,7 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 
 1. Create Heroku account
 
-2. Create Developer twiiter account and  create twitter app
+2. Create Developer twiiter account and twitter app
 
 3. Get api key, api secret key, access token and access token secret
 
@@ -16,42 +16,68 @@ Search for tweets with a specific hashtag and post the post date and time + Twit
 
 5. Get webhook url of created channel
 
+6. Login heroku cli (command prompt or bash)
+
 ### Main task
 
-1. Fork this repository
+1. Fork this repository and clone your repository
 
-2. Create Heroku App
+2. Create the .env file by referring to the section .env file
 
-3. Connect to GitHub, select forked repository
+3. Execute "generate_heroku_commands.py bat shift_jis"
 
-4. Setting Config Vars
+4. Execute create_heroku_app.bat
 
-5. Add Heroku Postgres, create Postgres database and create table 'twitter'
+5. Create table 'twitter' in created application by referring to the section DDL  
+  (After execute heroku cli of Database Credentials)
 
-6. Deploy using Heroku Git
+6. Select your repository and connect to GitHub
+
+7. Deploy
+
+8. Execute set_heroku_ps.bat
+
+9. Create job of scheduler
 
 ## Config Vars
 
-You can use setting_Config_Vars.py and .env to generate commands to set environment variables.  
+You can use generate_heroku_command.py and .env to generate commands to set environment variables.  
 The extension (bat or sh) is required as an argument to run this script.  
 If your OS is Windows, use bat. If your OS is Linux-based, use sh.  
 If you are using a Linux system, be careful about execution permissions.  
 
-1. API_KEY ... set api key of twitter
+1. APP_NAME ... set application name (It is not required for the heroku app itself, but it is needed to generate the heroku commands.)
 
-2. API_SECRET ... set api secret key of twitter
+2. API_KEY ... set api key of twitter
 
-3. ACCESS_TOKEN ... set access token of twitter
+3. API_SECRET ... set api secret key of twitter
 
-4. ACCESS_TOKEN_SECRET ... set access secret token of twitter
+4. ACCESS_TOKEN ... set access token of twitter
 
-5. SEARCH_WORD ... set search word
+5. ACCESS_TOKEN_SECRET ... set access secret token of twitter
 
-6. COUNT_NUMBER ... set tweet number of acquisitions
+6. SEARCH_WORD ... set search word
 
-7. WEBHOOK_URL ... set webhook url
+7. COUNT_NUMBER ... set tweet number of acquisitions
 
-8. DATABASE_URL ... set automatly when add Heroku Postgres
+8. WEBHOOK_URL ... set webhook url
+
+9. DATABASE_URL ... set automatly when add Heroku Postgres
+
+### .env file
+
+APP_NAME is max 30 byte.
+
+```.env
+APP_NAME=collection-vtuber-isekaijoucho
+API_KEY=XXXXXXXXXXXXXXXXXXXXXX
+API_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ACCESS_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ACCESS_TOKEN_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+SEARCH_WORD="#ヰ世界情緒美術部 filter:images exclude:retweets -from:@isekaijoucho"
+COUNT_NUMBER=30
+WEBHOOK_URL=https://discord.com/api/webhooks/999999999999999999/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
 
 ## DDL
 
